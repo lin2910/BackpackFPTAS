@@ -71,7 +71,6 @@ void print(int** arr, const size_t row, const size_t column) {
 	}
 }
 
-
 size_t columnSize(const int* value, const size_t size, int& countOperation)
 {
 	size_t columnSize = 0;
@@ -89,7 +88,7 @@ size_t columnSize(const int* value, const size_t size, int& countOperation)
 
 void fill(int** solveTable, const size_t row, const size_t column, const int* weight, const int* value, const size_t size, int** helpTable, const int inf, int& countOperation)
 {
-	// Начальная инициализация таблицы  минимального суммарного веса
+	// РќР°С‡Р°Р»СЊРЅР°СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ С‚Р°Р±Р»РёС†С‹  РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СЃСѓРјРјР°СЂРЅРѕРіРѕ РІРµСЃР°
 	for (size_t i = 0; i < column; i++) {
 		countOperation++;
 		solveTable[0][i] = inf; //A[0, r] = +inf
@@ -106,7 +105,7 @@ void fill(int** solveTable, const size_t row, const size_t column, const int* we
 		}
 		std::cout << std::endl;
 	}
-	// инициализация вспомогательной таблицы
+	// РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅРѕР№ С‚Р°Р±Р»РёС†С‹
 	countOperation++;
 	for (int i = 0; i < row; i++)
 	{
@@ -117,7 +116,7 @@ void fill(int** solveTable, const size_t row, const size_t column, const int* we
 		}
 	}
 
-	// Заполнение таблицы минимального суммарного веса 
+	// Р—Р°РїРѕР»РЅРµРЅРёРµ С‚Р°Р±Р»РёС†С‹ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СЃСѓРјРјР°СЂРЅРѕРіРѕ РІРµСЃР° 
 	for (int i = 1; i < row; i++) {
 		for (int r = 1; r < column; r++)
 		{
@@ -126,10 +125,10 @@ void fill(int** solveTable, const size_t row, const size_t column, const int* we
 				countOperation+3;
 				int minim = min(solveTable[i - 1][r - value[i - 1]] + weight[i - 1], solveTable[i - 1][r]);
 				solveTable[i][r] = minim; 
-				if (minim == solveTable[i - 1][r - value[i - 1]] + weight[i - 1]) // если новый предмет меньше - кладем в рюкзак
+				if (minim == solveTable[i - 1][r - value[i - 1]] + weight[i - 1]) // РµСЃР»Рё РЅРѕРІС‹Р№ РїСЂРµРґРјРµС‚ РјРµРЅСЊС€Рµ - РєР»Р°РґРµРј РІ СЂСЋРєР·Р°Рє
 				{
 					countOperation++;
-					helpTable[i][r] = 1; // взяли предмет
+					helpTable[i][r] = 1; // РІР·СЏР»Рё РїСЂРµРґРјРµС‚
 				}
 			}
 			else 
@@ -155,9 +154,9 @@ int* getSolve(int** solveTable, const size_t row, const size_t column, int** hel
 		result[i] = 0;
 	}
 
-	// Стоимость оптимального решения - 
-	// значение в самой правой ячейке нижней строки, 
-	// не превышающее максимально разрешенное
+	// РЎС‚РѕРёРјРѕСЃС‚СЊ РѕРїС‚РёРјР°Р»СЊРЅРѕРіРѕ СЂРµС€РµРЅРёСЏ - 
+	// Р·РЅР°С‡РµРЅРёРµ РІ СЃР°РјРѕР№ РїСЂР°РІРѕР№ СЏС‡РµР№РєРµ РЅРёР¶РЅРµР№ СЃС‚СЂРѕРєРё, 
+	// РЅРµ РїСЂРµРІС‹С€Р°СЋС‰РµРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕ СЂР°Р·СЂРµС€РµРЅРЅРѕРµ
 	countOperation++;
 	for (int i = column - 1; i > -1; i--) 
 	{
@@ -187,7 +186,7 @@ int* getSolve(int** solveTable, const size_t row, const size_t column, int** hel
 int* scale(int * value, const size_t size, const double eps, int& countOperation)
 {
 	countOperation++;
-	int max = 0; // стоимость самого дорогого предмета
+	int max = 0; // СЃС‚РѕРёРјРѕСЃС‚СЊ СЃР°РјРѕРіРѕ РґРѕСЂРѕРіРѕРіРѕ РїСЂРµРґРјРµС‚Р°
 	for (int i = 0; i < size; i++) {
 		countOperation++;
 		if (value[i] > max) {
@@ -195,7 +194,6 @@ int* scale(int * value, const size_t size, const double eps, int& countOperation
 			max = value[i];
 		}
 	}
-
 	countOperation++;
 	int t = eps / 2 * max / size;
 
@@ -208,7 +206,5 @@ int* scale(int * value, const size_t size, const double eps, int& countOperation
 		else
 			scaleValue[i] = value[i];
 	}
-
 	return scaleValue;
 }
-
