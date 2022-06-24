@@ -28,7 +28,7 @@ int main(int argc, const char* argv[]) {
 			int countOperation = 0;
 			size_t row = size + 1;
 
-			//начало отсчета времени
+			//РЅР°С‡Р°Р»Рѕ РѕС‚СЃС‡РµС‚Р° РІСЂРµРјРµРЅРё
 			clock_t start = clock();
 
 			int* scaleValue = scale(value, size, eps, countOperation);
@@ -53,10 +53,10 @@ int main(int argc, const char* argv[]) {
 			int record = 0;
 			int* recordWeight = getSolve(solveTable, row, column, helpTable, scaleValue, value, size, record, maxWeight, countOperation);
 			
-			// конец отсчета времени
+			// РєРѕРЅРµС† РѕС‚СЃС‡РµС‚Р° РІСЂРµРјРµРЅРё
 			clock_t stop = clock();
 
-			// количество секунд
+			// РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРµРєСѓРЅРґ
 			double seconds = double(stop - start) / CLOCKS_PER_SEC;
 
 			put_number(OutputFile_s, record);
@@ -113,7 +113,7 @@ int main(int argc, const char* argv[]) {
 		size_t row = size + 1;
 
 
-		//начало отсчета времени
+		//РЅР°С‡Р°Р»Рѕ РѕС‚СЃС‡РµС‚Р° РІСЂРµРјРµРЅРё
 		clock_t start = clock(); 
 		
 		int* scaleValue = scale(value, size, eps, countOperation);
@@ -157,10 +157,10 @@ int main(int argc, const char* argv[]) {
 		
 
 		//generate(inBackpack, weight, value, size, record, recordWeight, maxWeight, size-1, countOperation);
-		// конец отсчета времени
+		// РєРѕРЅРµС† РѕС‚СЃС‡РµС‚Р° РІСЂРµРјРµРЅРё
 		clock_t stop = clock();
 
-		// количество секунд
+		// РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРµРєСѓРЅРґ
 		double seconds = double(stop - start) / CLOCKS_PER_SEC;
 
 		cout << "time : " << seconds << endl;
