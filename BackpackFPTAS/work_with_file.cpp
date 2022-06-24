@@ -3,7 +3,7 @@
 int get_number(const char* filename) {
 	assert(filename);
 	ifstream fin(filename);
-	if (!fin.is_open()) throw "Не найден указанный файл";
+	if (!fin.is_open()) throw "РќРµ РЅР°Р№РґРµРЅ СѓРєР°Р·Р°РЅРЅС‹Р№ С„Р°Р№Р»";
 	int n;
 	fin >> n;
 	fin.close();
@@ -15,7 +15,7 @@ double get_double(const char* filename)
 {
 	assert(filename);
 	ifstream fin(filename);
-	if (!fin.is_open()) throw "Не найден указанный файл";
+	if (!fin.is_open()) throw "РќРµ РЅР°Р№РґРµРЅ СѓРєР°Р·Р°РЅРЅС‹Р№ С„Р°Р№Р»";
 	double d;
 	fin >> d;
 	fin.close();
@@ -26,7 +26,7 @@ double get_double(const char* filename)
 int* get_array(const char* filename) {
 	assert(filename);
 	ifstream fin(filename);
-	if (!fin.is_open()) throw "Не найден указанный файл";
+	if (!fin.is_open()) throw "РќРµ РЅР°Р№РґРµРЅ СѓРєР°Р·Р°РЅРЅС‹Р№ С„Р°Р№Р»";
 
 	int* arr = new int[100];
 	int k;
@@ -45,7 +45,7 @@ int* get_array(const char* filename) {
 int* get_array(const char* filename, size_t& size) {
 	assert(filename);
 	ifstream fin(filename);
-	if (!fin.is_open()) throw "Не найден указанный файл";
+	if (!fin.is_open()) throw "РќРµ РЅР°Р№РґРµРЅ СѓРєР°Р·Р°РЅРЅС‹Р№ С„Р°Р№Р»";
 
 	int* arr = new int[100];
 	int k;
